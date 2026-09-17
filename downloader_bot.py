@@ -260,5 +260,5 @@ def main():
 
 
 if __name__ == "__main__":
-       print("START TEST", flush=True)
+    print("START TEST", flush=True)
     main()

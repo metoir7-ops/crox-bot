@@ -46,10 +46,9 @@ def api(method, data=None, files=None):
             files=files,
             timeout=60
         )
-        return r.json()
-    except Exception as e:
-        print("API ERROR:", e)
-        return {"ok": False}
+        except Exception as e:
+    print("API ERROR:", repr(e), flush=True)
+    return {"ok": False}
 
 
 def get_updates(offset=None):
@@ -62,6 +61,9 @@ def get_updates(offset=None):
         data["offset"] = offset
 
     return api("getUpdates", data)
+result = api("getUpdates", data)
+print("GET UPDATES:", result, flush=True)
+return result
 
 
 def send_message(chat_id, text):
